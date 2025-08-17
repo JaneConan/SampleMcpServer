@@ -1,16 +1,40 @@
+// {
+//   "servers": {
+//     "SampleMcpServer": {
+//       "type": "stdio",
+//       "command": "dotnet",
+//       "args": [
+//         "run",
+//         "--project",
+//         "/Users/yaoshengwei/Downloads/0818/SampleMcpServer"
+//       ],
+//         "env": {
+//             "WEATHER_CHOICES": "sunny,humid,freezing"
+//         }
+//     }
+//   }
+// }
 {
-  "servers": {
-    "SampleMcpServer": {
-      "type": "stdio",
-      "command": "dotnet",
-      "args": [
-        "run",
-        "--project",
-        "/Users/yaoshengwei/Downloads/0818/SampleMcpServer"
-      ],
-        "env": {
-            "WEATHER_CHOICES": "sunny,humid,freezing"
-        }
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "weather_choices",
+      "description": "Comma separated list of weather descriptions to randomly select.",
+      "password": false
     }
-  }
+  ],
+  "servers": {
+    "ConanYao.SampleMcpServer": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": [
+        "ConanYao.SampleMcpServer", 
+        "--version",
+        "0.1.0-beta",
+        "--yes"
+      ],
+      "env": {
+        "WEATHER_CHOICES": "${input:weather_choices}"
+      }
+    }
 }

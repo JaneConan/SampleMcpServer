@@ -1,14 +1,26 @@
 {
   "$schema": "https://modelcontextprotocol.io/schemas/draft/2025-07-09/server.json",
   "description": "Just Test MCP Server",
-  "name": "ConanYao.SampleMcpServer",
+  "name": "io.github.JaneConan/SampleMcpServer",
   "packages": [
     {
       "registry_name": "nuget",
       "name": "ConanYao.SampleMcpServer",
-      "version": "0.1.0-beta",
+      "version": "0.1.0",
       "package_arguments": [],
-      "environment_variables": []
+      "environment_variables": [
+        {
+          "name": "WEATHER_CHOICES",
+          "value": "{weather_choices}",
+          "variables": {
+            "weather_choices": {
+              "description": "Comma separated list of weather descriptions to randomly select.",
+              "is_required": true,
+              "is_secret": false
+            }
+          }
+        }
+      ]
     }
   ],
   "repository": {
@@ -16,6 +28,6 @@
     "source": "github"
   },
   "version_detail": {
-    "version": "0.1.0-beta"
+    "version": "0.1.0"
   }
 }
