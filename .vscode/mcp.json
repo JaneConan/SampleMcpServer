@@ -30,11 +30,12 @@
       "args": [
         "ConanYao.SampleMcpServer", 
         "--version",
-        "0.1.0-beta",
+        "0.1.0",
         "--yes"
       ],
       "env": {
         "WEATHER_CHOICES": "${input:weather_choices}"
       }
     }
+  }
 }
